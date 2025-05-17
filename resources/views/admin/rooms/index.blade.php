@@ -1,11 +1,11 @@
 @extends('admin.layout')
 
 @section('content')
-<div class="p-6">
-    <div class="flex justify-between items-center mb-6">
+<div class="w-full px-4 py-6">
+    <div class=" items-center mb-6">
         <h1 class="text-2xl font-bold">All Rooms</h1>
         <a href="{{ route('room.create') }}"
-           class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+           class="btn btn-md btn-success">
             + Add New Room
         </a>
     </div>
@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <div class="bg-white rounded-xl shadow overflow-x-auto">
+    <div class="w-full bg-white rounded-xl shadow overflow-x-auto">
         <table class="min-w-full text-sm text-left">
             <thead class="bg-gray-100 text-gray-600 uppercase text-xs">
                 <tr>
@@ -50,9 +50,9 @@
                         </td>
                         <td class="px-4 py-2">
                             <div class="flex gap-2">
-                                <a href="{{ route('room.edit', $room->id) }}"
+                                <a href="{{ route('admin.rooms.edit', $room->id) }}"
                                    class="text-blue-600 hover:underline text-sm">Edit</a>
-                                <form action="{{ route('room.destroy', $room->id) }}" method="POST"
+                                <form action="{{ route('admin.rooms.destroy', $room->id) }}" method="POST"
                                       onsubmit="return confirm('Are you sure?')">
                                     @csrf
                                     @method('DELETE')

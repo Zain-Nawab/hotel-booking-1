@@ -1,3 +1,4 @@
+
 @extends('admin.layout')
 
 @section('content')
@@ -50,7 +51,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">Room Image (optional)</label>
+            <label for="image" class="form-label">Room Image </label>
             <input type="file" class="form-control" id="image" name="image">
         </div>
 

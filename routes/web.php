@@ -3,11 +3,13 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RoomController as AdminRoomController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
+
 ;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::get('/home', [AdminRoomController::class, 'index'])->name('home.index');
+Route::get('/', [BlogController::class, 'index'])->name('home.index');
 
 
 // auth login/sign up
@@ -25,6 +27,3 @@ Route::get('/admin/main', [DashboardController::class, 'index'])->name('admin.ma
 Route::get('/admin/rooms', [AdminRoomController::class, 'index'])->name('room.index');
 Route::get('/admin/room/create', [AdminRoomController::class, 'create'])->name('room.create');
 Route::get('/admin/room/store', [AdminRoomController::class, 'store'])->name('room.store');
-
-Route::get('/admin/room/edit', [AdminRoomController::class, 'edit'])->name('room.edit');
-Route::get('/admin/room/destroy', [AdminRoomController::class, 'destroy'])->name('room.destroy');
