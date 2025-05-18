@@ -2,15 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <!-- Required meta tags -->        
+        <link rel="icon" href="{{ asset('image/favicon.png') }}" type="image/png">
+        <title>Royal Hotel</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendors/nice-select/css/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
   </head>
   <body>
-    <h1>Hello, world!</h1>
+
+    
+    @if (request()->routeIs('home.index'))
+      @include('partials.header')
+    @endif
+    @if (request()->routeIs('home.index'))
+      @include('partials.banner')
+    @endif
+
+    @if (request()->routeIs('home.index'))
+      @include('partials.ftco')
+
+    @endif
+
+     @if (request()->routeIs('home.index'))
+      @include('partials.accomodation')
+    @endif
+
+     @if (request()->routeIs('home.index'))
+      @include('partials.facilities')
+    @endif
+
+    @if (request()->routeIs('home.index'))
+      @include('partials.history')
+    @endif
+
+    @if (request()->routeIs('home.index'))
+      @include('partials.testimonial')
+    @endif
 
     @yield('content')
-    
+
+    @if (request()->routeIs('home.index'))
+     @include('partials.footer')
+    @endif
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+     <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('js/popper.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('vendors/owl-carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
+        <script src="{{ asset('js/mail-script.js') }}"></script>
+        <script src="{{ asset('vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js') }}"></script>
+        <script src="{{ asset('vendors/nice-select/js/jquery.nice-select.js') }}"></script>
+        <script src="{{ asset('js/mail-script.js') }}"></script>
+        <script src="{{ asset('js/stellar.js') }}"></script>
+        <script src="{{ asset('vendors/lightbox/simpleLightbox.min.js') }}"></script>
+        <script src="{{ asset('js/custom.js') }}"></script>
   </body>
 </html>

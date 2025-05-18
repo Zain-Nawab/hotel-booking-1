@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar ">
         <h4 class="text-center py-3">Admin Panel</h4>
         <a class="ms-3" href="#"><i class="bi bi-speedometer2"></i>  Dashboard</a>
         <a class="ms-3" href="#"><i class="bi bi-people card-icon "></i>  Customers</a>

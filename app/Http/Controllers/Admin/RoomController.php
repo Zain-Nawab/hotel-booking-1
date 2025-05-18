@@ -30,7 +30,22 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'room_number' => 'required',
+            'type' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        Room::create([
+            'room_number' => $validated['room_number'],
+            'type' => $validated['type'],
+            'price_per_night' => $validated['price'],
+            'description' => $validated['description'],
+            'image' => $validated['image']->store('rooms', 'public'),
+        ]);
+        return redirect()->route('room.index')->with('success', 'Room created successfully.');
     }
 
     /**

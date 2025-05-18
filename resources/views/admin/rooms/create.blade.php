@@ -2,6 +2,8 @@
 @extends('admin.layout')
 
 @section('content')
+
+
 <div class="container mt-5">
     <h2 class="mb-4">Create Room</h2>
 
@@ -45,6 +47,29 @@
             </div>
         </div>
 
+        <div class="row mb-3">
+
+            <div class="col-md-6">
+                <label for="type" class="form-label">Adult</label>
+                <select class="form-select" id="type" name="adult" required>
+                    <option value="">-- Select Adult --</option>
+                    <option value="1">Adult 1</option>
+                    <option value="2">Adult 2</option>
+                    <option value="3">Adult 3</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="type" class="form-label">Child</label>
+                <select class="form-select" id="type" name="child" required>
+                    <option value="">-- Select Child --</option>
+                    <option value="1">Child 1</option>
+                    <option value="2">Child 2</option>
+                    <option value="3">Child 3</option>
+                </select>
+            
+        </div>
+
         <div class="mb-3">
             <label for="description" class="form-label">Description (optional)</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
@@ -55,7 +80,7 @@
             <input type="file" class="form-control" id="image" name="image">
         </div>
 
-        <button type="submit" class="btn btn-primary">Create Room</button>
+        <button type="submit" class="btn btn-md w-25 btn-primary ">Create Room</button>
     </form>
 </div>
 @endsection
