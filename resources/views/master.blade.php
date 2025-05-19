@@ -8,6 +8,8 @@
      <!-- Required meta tags -->        
         <link rel="icon" href="{{ asset('image/favicon.png') }}" type="image/png">
         <title>Royal Hotel</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css') }}">
@@ -19,6 +21,8 @@
         <!-- main css -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+        <!-- bootstrap icon -->
+        @stack('styles')
   </head>
   <body>
 
@@ -32,12 +36,15 @@
 
     @if (request()->routeIs('home.index'))
       @include('partials.ftco')
-
     @endif
 
-     @if (request()->routeIs('home.index'))
+   <div class="container">
+     @yield('content')
+   </div>
+
+     {{-- @if (request()->routeIs('home.index'))
       @include('partials.accomodation')
-    @endif
+    @endif --}}
 
      @if (request()->routeIs('home.index'))
       @include('partials.facilities')
@@ -51,7 +58,7 @@
       @include('partials.testimonial')
     @endif
 
-    @yield('content')
+    
 
     @if (request()->routeIs('home.index'))
      @include('partials.footer')

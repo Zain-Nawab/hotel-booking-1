@@ -32,5 +32,5 @@ Route::get('/admin/room/edit/{id}', [AdminRoomController::class, 'edit'])->name(
 Route::get('/admin/room/update/{id}', [AdminRoomController::class, 'update'])->name('room.update');
 Route::get('/admin/room/delete/{id}', [AdminRoomController::class, 'destroy'])->name('room.destroy');
 
-Route::get('/admin/room/show/{id}', [AdminRoomController::class, 'show'])->name('room.show');
-Route::get('/admin/room/bookings/{id}', [AdminRoomController::class, 'bookings'])->name('room.bookings');
+Route::get('/blog/room/show/{id}', [BlogController::class, 'show'])->name('rooms.show');
+Route::get('/admin/room/bookings/{id}', [AdminRoomController::class, 'bookings'])->name('room.booking');

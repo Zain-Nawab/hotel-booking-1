@@ -24,9 +24,9 @@
                 <label for="type" class="form-label">Type</label>
                 <select class="form-select" id="type" name="type" required>
                     <option value="">-- Select Type --</option>
-                    <option value="single">Single</option>
-                    <option value="double">Double</option>
-                    <option value="luxury">Luxury</option>
+                    <option value="SINGLE ROOM">Single Room</option>
+                    <option value="DOUBLE ROOM">Double Room</option>
+                    <option value="LUXURY ROOM">Luxury Room</option>
                 </select>
             </div>
         </div>
