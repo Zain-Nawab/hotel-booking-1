@@ -9,35 +9,117 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
      <!-- remix icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" /> 
+    @stack('styles')
     <style>
         body {
-            display: flex;
+            margin: 0;
+            padding: 0;
         }
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #343a40;
+        
+        /* Mobile menu toggle button */
+        .mobile-menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #667eea;
             color: white;
-        }
-        .sidebar a {
-            color: white;
-            display: block;
+            border: none;
             padding: 10px;
-            text-decoration: none;
+            border-radius: 5px;
+            display: none;
         }
-        .sidebar a:hover {
-            background-color: #495057;
+        
+        /* Main content area that accounts for sidebar */
+        .main-content {
+            margin-left: 280px; /* Same width as sidebar */
+            min-height: 100vh;
+            padding: 0;
+            transition: margin-left 0.3s ease;
         }
-        .content {
-            flex: 1;
-            padding: 20px;
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding-top: 60px; /* Account for toggle button */
+            }
+        }
+        
+        /* Overlay for mobile */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
         }
     </style>
     
+    
 </head>
 <body>
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="bi bi-list fs-5"></i>
+    </button>
+    
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
    
     @include('partials.adminsidebar')
-    @yield('content')
+    
+    <div class="main-content">
+        @yield('content')
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Add Bootstrap JS before -->
+    @stack('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.modern-sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        mobileMenuToggle.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+        
+        // Close sidebar when clicking on a link (mobile)
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>

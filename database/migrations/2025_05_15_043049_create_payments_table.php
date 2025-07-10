@@ -17,7 +17,7 @@ return new class extends Migration
         $table->decimal('amount', 10, 2);
         $table->string('method'); // e.g. stripe, paypal
         $table->string('transaction_id')->nullable();
-        $table->enum('status', ['paid', 'failed'])->default('paid');
+        $table->enum('status', ['paid', 'failed']);
         $table->timestamps();
         });
     }

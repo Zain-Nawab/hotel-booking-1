@@ -26,13 +26,25 @@
   </head>
   <body>
 
-    
+
+    <div class="container mt-5 py-2">
+      <!-- Success Alert -->
     @if (request()->routeIs('home.index'))
+      @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show shadow-sm mt-5 " role="alert">
+            <i class="bi bi-check-circle me-2"></i>
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    @endif
+    @endif
+    </div>
       @include('partials.header')
-    @endif
-    @if (request()->routeIs('home.index'))
-      @include('partials.banner')
-    @endif
+    
+     @if (request()->routeIs('home.index'))
+       @include('partials.banner')
+     @endif      
+    
 
     @if (request()->routeIs('home.index'))
       @include('partials.ftco')
@@ -42,12 +54,8 @@
      @yield('content')
    </div>
 
-     {{-- @if (request()->routeIs('home.index'))
-      @include('partials.accomodation')
-    @endif --}}
-
      @if (request()->routeIs('home.index'))
-      @include('partials.facilities')
+     @include('partials.facilities')
     @endif
 
     @if (request()->routeIs('home.index'))
@@ -58,12 +66,17 @@
       @include('partials.testimonial')
     @endif
 
-    
-
-    @if (request()->routeIs('home.index'))
-     @include('partials.footer')
+     @if (request()->routeIs('home.index'))
+      @include('partials.latestblog')
     @endif
 
+
+    
+
+    @include('partials.footer')
+    
+
+     @stack('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
      <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -79,5 +92,6 @@
         <script src="{{ asset('js/stellar.js') }}"></script>
         <script src="{{ asset('vendors/lightbox/simpleLightbox.min.js') }}"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
+       
   </body>
 </html>
